@@ -7,15 +7,18 @@ int windowHeight;
 void testApp::setup(){
 	windowWidth = ofGetWidth();
 	windowHeight = ofGetHeight();
+
+	cout << "clips[" << bank_nr << "][" << block_nr << "][" << clip_nr << "]: " << ofToString(clips[bank_nr][block_nr][clip_nr]) << endl;
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-	ofBackground(0, 0, 0);
+
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
+    ofBackground(0, 0, 0);
 }
 
 //--------------------------------------------------------------
