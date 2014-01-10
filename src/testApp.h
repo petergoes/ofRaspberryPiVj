@@ -1,6 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+
+#include "input/InteractionAdapter.h"
+
 #include "clips/Clip.h"
 #include "clips/DefaultClip.h"
 #include "clips/YellowCircle.h"
@@ -29,6 +32,8 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+        InteractionAdapter ia;
 
         int bnk_nr; // Current Bank Number
         int bck_nr; // Current Block Number

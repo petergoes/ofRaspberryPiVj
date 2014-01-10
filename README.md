@@ -11,7 +11,7 @@ The openFrameworks version this app is based upon is `0.8.0`
 
 Controls
 --------
-ofRaspberryPiVj is being developed with the Thrustmaster Dual Analog 3 USB controller in mind. Planned button layout:
+ofRaspberryPiVj is being developed with the Thrustmaster Dual Analog 3 USB game controller in mind. Planned button layout:
 <pre>
     ______          ______
     \____/ SL2      \____/ SR2
@@ -43,3 +43,5 @@ ofRaspberryPiVj is being developed with the Thrustmaster Dual Analog 3 USB contr
 | B4 - Button 4         |  TR  - Trigger Right    |
 ---------------------------------------------------
 </pre>
+
+Since the game controller is not yet implemented, an keyboard implementation has been made. The keyboard implementation will stay even if the gamme controller has been implemented. The goal is to (eventually) support multiple input devices.

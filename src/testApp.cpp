@@ -1,17 +1,21 @@
 #include "testApp.h"
 
 
+
 //--------------------------------------------------------------
 void testApp::setup(){
 
 	bnk_nr = 0;
     bck_nr = 0;
-    clp_nr = 3;
+    clp_nr = 0;
 
-    clips[0][0][0] = new DefaultClip();
-    clips[0][0][1] = new YellowCircle();
-    clips[0][0][2] = new Squares();
-    clips[0][0][3] = new Triangle();
+    // Bank 0
+
+        // Block 0
+            clips[0][0][0] = new DefaultClip();
+            clips[0][0][1] = new YellowCircle();
+            clips[0][0][2] = new Squares();
+            clips[0][0][3] = new Triangle();
 
     clips[bnk_nr][bck_nr][clp_nr]->setup();
 }
@@ -47,12 +51,16 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+    ia.keyPressed(key);
     clips[bnk_nr][bck_nr][clp_nr]->keyPressed( key );
 }
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
+    ia.keyReleased(key);
+    //cout << "key: " << key << endl;
 
+/*
     if ( clp_nr < TOTAL_CLIPS - 1 )
     {
         clp_nr = clp_nr + 1;
@@ -64,6 +72,7 @@ void testApp::keyReleased(int key){
 
     clips[bnk_nr][bck_nr][clp_nr]->setup();
     clips[bnk_nr][bck_nr][clp_nr]->keyReleased( key );
+    */
 }
 
 //--------------------------------------------------------------
