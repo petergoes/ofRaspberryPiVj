@@ -1,7 +1,7 @@
 #ifndef YELLOWCIRCLE_H
 #define YELLOWCIRCLE_H
 
-#include <clip.h>
+#include <Clip.h>
 
 
 class YellowCircle : public Clip

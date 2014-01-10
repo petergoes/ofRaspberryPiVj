@@ -30,13 +30,19 @@
 		<Unit filename="config.make">
 			<Option virtualFolder="build config" />
 		</Unit>
-		<Unit filename="src/clips/clip.h">
+		<Unit filename="src/clips/Clip.h">
 			<Option virtualFolder="src/clips/" />
 		</Unit>
-		<Unit filename="src/clips/decaultClip.cpp">
+		<Unit filename="src/clips/DefaultClip.cpp">
 			<Option virtualFolder="src/clips/" />
 		</Unit>
-		<Unit filename="src/clips/defaultClip.h">
+		<Unit filename="src/clips/DefaultClip.h">
+			<Option virtualFolder="src/clips/" />
+		</Unit>
+		<Unit filename="src/clips/YellowCircle.cpp">
+			<Option virtualFolder="src/clips/" />
+		</Unit>
+		<Unit filename="src/clips/YellowCircle.h">
 			<Option virtualFolder="src/clips/" />
 		</Unit>
 		<Unit filename="src/main.cpp">

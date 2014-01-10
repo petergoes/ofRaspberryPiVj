@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "clips/clip.h"
+#include "clips/Clip.h"
 #include "clips/DefaultClip.h"
 #include "clips/YellowCircle.h"
 

@@ -1,7 +1,7 @@
 #ifndef DEFAULTCLIP_H
 #define DEFAULTCLIP_H
 
-#include <clip.h>
+#include <Clip.h>
 
 
 class DefaultClip : public Clip
