@@ -16,7 +16,7 @@ class Clip
 
         virtual void setup(){ screenWidth = ofGetWidth(); screenHeight = ofGetHeight(); halfScreenWidth = screenWidth * .5; halfScreenHeight = screenHeight *.5; };
         virtual void update(){ };
-        virtual void draw(){ ofPopStyle(); ofClear(0, 0, 0); ofPushStyle(); };
+        virtual void draw(){ ofPopStyle(); ofPopMatrix(); ofClear(0, 0, 0); ofPushStyle(); ofPushMatrix(); };
         virtual void keyPressed(int key){};
         virtual void keyReleased(int key){};
         virtual void mouseMoved(int x, int y ){};

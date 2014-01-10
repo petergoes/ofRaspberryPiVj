@@ -6,10 +6,11 @@ void testApp::setup(){
 
 	bnk_nr = 0;
     bck_nr = 0;
-    clp_nr = 0;
+    clp_nr = 2;
 
     clips[0][0][0] = new DefaultClip();
     clips[0][0][1] = new YellowCircle();
+    clips[0][0][2] = new Squares();
 
     clips[bnk_nr][bck_nr][clp_nr]->setup();
 }
@@ -22,6 +23,25 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     clips[bnk_nr][bck_nr][clp_nr]->draw();
+
+    if ( DEBUG == true )
+    {
+        ofPopStyle();
+        ofPopMatrix();
+        ofPushStyle();
+        ofPushMatrix();
+
+        ofLine( (ofGetWidth() * 0.25), 0, (ofGetWidth() * 0.25), ofGetHeight() );
+        ofLine( (ofGetWidth() * 0.75), 0, (ofGetWidth() * 0.75), ofGetHeight() );
+        ofLine( 0, (ofGetHeight() * 0.25), ofGetWidth(), (ofGetHeight() * 0.25) );
+        ofLine( 0, (ofGetHeight() * 0.75), ofGetWidth(), (ofGetHeight() * 0.75) );
+
+        ofSetColor(255, 0, 0);
+        ofLine( (ofGetWidth() * 0.50), 0, (ofGetWidth() * 0.50), ofGetHeight() );
+        ofLine( (ofGetWidth() * 0.50), 0, (ofGetWidth() * 0.50), ofGetHeight() );
+        ofLine( 0, (ofGetHeight() * 0.50), ofGetWidth(), (ofGetHeight() * 0.50) );
+        ofLine( 0, (ofGetHeight() * 0.50), ofGetWidth(), (ofGetHeight() * 0.50) );
+    }
 }
 
 //--------------------------------------------------------------

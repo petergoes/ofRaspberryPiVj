@@ -4,10 +4,13 @@
 #include "clips/Clip.h"
 #include "clips/DefaultClip.h"
 #include "clips/YellowCircle.h"
+#include "clips/Squares.h"
 
 #define TOTAL_BANKS 1
 #define TOTAL_BLCKS 4
-#define TOTAL_CLIPS 2
+#define TOTAL_CLIPS 3
+
+#define DEBUG false
 
 class testApp : public ofBaseApp{
 
