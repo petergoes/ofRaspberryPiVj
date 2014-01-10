@@ -45,3 +45,26 @@ ofRaspberryPiVj is being developed with the Thrustmaster Dual Analog 3 USB game 
 </pre>
 
 Since the game controller is not yet implemented, an keyboard implementation has been made. The keyboard implementation will stay even if the gamme controller has been implemented. The goal is to (eventually) support multiple input devices.
+
+Current keymap:
+<pre>
+SL1 - left arrow
+SR1 - right arrow
+SL2 - 1
+SR2 - 3
+
+AL  - <not implemented>
+AR  - <not implemented>
+TL  - q
+TR  - e
+
+B1  - Numpad 8
+B2  - Numpad 6
+B3  - Numpad 2
+B4  - Numpad 4
+
+DU  - W
+DR  - D
+DD  - S
+DL  - A
+</pre>

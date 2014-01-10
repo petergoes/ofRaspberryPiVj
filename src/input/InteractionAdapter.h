@@ -35,8 +35,8 @@ class InteractionAdapter
         void keyReleased(int key);
 
     private:
-        int keymap[403];
         vector<int> buttonMap;
+        int keymap[403];
         int pressedButtons[16];
 
         void buildPressedButtons(int key);
