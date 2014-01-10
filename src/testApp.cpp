@@ -6,7 +6,7 @@
 void testApp::setup(){
 
 	bnk_nr = 0;
-    bck_nr = 0;
+    blk_nr = 0;
     clp_nr = 0;
 
     // Bank 0
@@ -17,17 +17,20 @@ void testApp::setup(){
             clips[0][0][2] = new Squares();
             clips[0][0][3] = new Triangle();
 
-    clips[bnk_nr][bck_nr][clp_nr]->setup();
+    clips[bnk_nr][blk_nr][clp_nr]->setup();
+
+    clipManager.setup( clips[TOTAL_BANKS][TOTAL_BLCKS][TOTAL_CLIPS], &bnk_nr, &blk_nr, &clp_nr );
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-    clips[bnk_nr][bck_nr][clp_nr]->update();
+    clips[bnk_nr][blk_nr][clp_nr]->update();
+
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    clips[bnk_nr][bck_nr][clp_nr]->draw();
+    clips[bnk_nr][blk_nr][clp_nr]->draw();
 
     if ( DEBUG == true )
     {
@@ -52,7 +55,7 @@ void testApp::draw(){
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
     ia.keyPressed(key);
-    clips[bnk_nr][bck_nr][clp_nr]->keyPressed( key );
+    clips[bnk_nr][blk_nr][clp_nr]->keyPressed( key );
 }
 
 //--------------------------------------------------------------
@@ -77,35 +80,35 @@ void testApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ){
-    clips[bnk_nr][bck_nr][clp_nr]->mouseMoved( x, y );
+    clips[bnk_nr][blk_nr][clp_nr]->mouseMoved( x, y );
 }
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-    clips[bnk_nr][bck_nr][clp_nr]->mouseDragged( x, y, button );
+    clips[bnk_nr][blk_nr][clp_nr]->mouseDragged( x, y, button );
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-    clips[bnk_nr][bck_nr][clp_nr]->mousePressed( x, y, button );
+    clips[bnk_nr][blk_nr][clp_nr]->mousePressed( x, y, button );
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-    clips[bnk_nr][bck_nr][clp_nr]->mouseReleased( x, y, button );
+    clips[bnk_nr][blk_nr][clp_nr]->mouseReleased( x, y, button );
 }
 
 //--------------------------------------------------------------
 void testApp::windowResized(int w, int h){
-    clips[bnk_nr][bck_nr][clp_nr]->windowResized( w, h );
+    clips[bnk_nr][blk_nr][clp_nr]->windowResized( w, h );
 }
 
 //--------------------------------------------------------------
 void testApp::gotMessage(ofMessage msg){
-    clips[bnk_nr][bck_nr][clp_nr]->gotMessage( msg );
+    clips[bnk_nr][blk_nr][clp_nr]->gotMessage( msg );
 }
 
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){
-    clips[bnk_nr][bck_nr][clp_nr]->dragEvent( dragInfo );
+    clips[bnk_nr][blk_nr][clp_nr]->dragEvent( dragInfo );
 }

@@ -6,7 +6,7 @@
 		<Option makefile_is_custom="1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="addons/;src/;build config/;src/clips/;" />
+		<Option virtualFolders="addons/;src/;src/clips/;build config/;src/input/;src/core/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/$(PROJECT_NAME)_debug" prefix_auto="1" extension_auto="1" />
@@ -39,11 +39,35 @@
 		<Unit filename="src/clips/DefaultClip.h">
 			<Option virtualFolder="src/clips/" />
 		</Unit>
+		<Unit filename="src/clips/Squares.cpp">
+			<Option virtualFolder="src/clips/" />
+		</Unit>
+		<Unit filename="src/clips/Squares.h">
+			<Option virtualFolder="src/clips/" />
+		</Unit>
+		<Unit filename="src/clips/Triangle.cpp">
+			<Option virtualFolder="src/clips/" />
+		</Unit>
+		<Unit filename="src/clips/Triangle.h">
+			<Option virtualFolder="src/clips/" />
+		</Unit>
 		<Unit filename="src/clips/YellowCircle.cpp">
 			<Option virtualFolder="src/clips/" />
 		</Unit>
 		<Unit filename="src/clips/YellowCircle.h">
 			<Option virtualFolder="src/clips/" />
+		</Unit>
+		<Unit filename="src/core/ClipManager.cpp">
+			<Option virtualFolder="src/core/" />
+		</Unit>
+		<Unit filename="src/core/ClipManager.h">
+			<Option virtualFolder="src/core/" />
+		</Unit>
+		<Unit filename="src/input/InteractionAdapter.cpp">
+			<Option virtualFolder="src/input/" />
+		</Unit>
+		<Unit filename="src/input/InteractionAdapter.h">
+			<Option virtualFolder="src/input/" />
 		</Unit>
 		<Unit filename="src/main.cpp">
 			<Option virtualFolder="src/" />

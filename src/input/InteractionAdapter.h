@@ -30,14 +30,16 @@ class InteractionAdapter
         InteractionAdapter();
         virtual ~InteractionAdapter();
 
-        void update();
         void keyPressed(int key);
         void keyReleased(int key);
+        void cleanKeymap();
+
+        const vector<int> &buttonMap;
 
     private:
-        vector<int> buttonMap;
-        int keymap[403];
-        int pressedButtons[16];
+        vector<int> _buttonMap;
+        int _keymap[403];
+        int _pressedButtons[16];
 
         void buildPressedButtons(int key);
 };

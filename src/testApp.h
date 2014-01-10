@@ -1,6 +1,14 @@
 #pragma once
 
+#define TOTAL_BANKS 1
+#define TOTAL_BLCKS 4
+#define TOTAL_CLIPS 4
+
+#define DEBUG false
+
 #include "ofMain.h"
+
+#include "core/ClipManager.h"
 
 #include "input/InteractionAdapter.h"
 
@@ -9,12 +17,6 @@
 #include "clips/YellowCircle.h"
 #include "clips/Squares.h"
 #include "clips/Triangle.h"
-
-#define TOTAL_BANKS 1
-#define TOTAL_BLCKS 4
-#define TOTAL_CLIPS 4
-
-#define DEBUG false
 
 class testApp : public ofBaseApp{
 
@@ -34,9 +36,10 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
         InteractionAdapter ia;
+        ClipManager clipManager;
 
         int bnk_nr; // Current Bank Number
-        int bck_nr; // Current Block Number
+        int blk_nr; // Current Block Number
         int clp_nr; // Current Clip Number
 
         Clip* clips[TOTAL_BANKS][TOTAL_BLCKS][TOTAL_CLIPS];
