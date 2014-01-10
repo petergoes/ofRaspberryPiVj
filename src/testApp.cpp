@@ -6,11 +6,12 @@ void testApp::setup(){
 
 	bnk_nr = 0;
     bck_nr = 0;
-    clp_nr = 2;
+    clp_nr = 3;
 
     clips[0][0][0] = new DefaultClip();
     clips[0][0][1] = new YellowCircle();
     clips[0][0][2] = new Squares();
+    clips[0][0][3] = new Triangle();
 
     clips[bnk_nr][bck_nr][clp_nr]->setup();
 }

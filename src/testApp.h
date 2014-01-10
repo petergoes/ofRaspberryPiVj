@@ -5,10 +5,11 @@
 #include "clips/DefaultClip.h"
 #include "clips/YellowCircle.h"
 #include "clips/Squares.h"
+#include "clips/Triangle.h"
 
 #define TOTAL_BANKS 1
 #define TOTAL_BLCKS 4
-#define TOTAL_CLIPS 3
+#define TOTAL_CLIPS 4
 
 #define DEBUG false
 
