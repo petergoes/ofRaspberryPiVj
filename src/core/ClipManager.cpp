@@ -10,7 +10,7 @@ ClipManager::~ClipManager()
     //dtor
 }
 
-void ClipManager::setup( Clip *clips, int *bnk_nr, int *blk_nr, int *clp_nr )
+void ClipManager::setup( vector< vector< vector<Clip*> > > clips, int *bnk_nr, int *blk_nr, int *clp_nr )
 {
     _clips = clips;
 

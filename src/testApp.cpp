@@ -9,17 +9,18 @@ void testApp::setup(){
     blk_nr = 0;
     clp_nr = 0;
 
-    // Bank 0
+    clips.push_back( vector< vector<Clip*> >() );   // Bank  0
 
-        // Block 0
-            clips[0][0][0] = new DefaultClip();
-            clips[0][0][1] = new YellowCircle();
-            clips[0][0][2] = new Squares();
-            clips[0][0][3] = new Triangle();
+        clips[0].push_back( vector<Clip*>() );          // Block 0
+            clips[0][0].push_back( new DefaultClip() );     // Clip  0
+            clips[0][0].push_back( new YellowCircle() );    // Clip  1
+            clips[0][0].push_back( new Squares() );         // Clip  2
+            clips[0][0].push_back( new Triangle() );        // Clip  3
+
 
     clips[bnk_nr][blk_nr][clp_nr]->setup();
 
-    clipManager.setup( clips[TOTAL_BANKS][TOTAL_BLCKS][TOTAL_CLIPS], &bnk_nr, &blk_nr, &clp_nr );
+    clipManager.setup( clips, &bnk_nr, &blk_nr, &clp_nr );
 }
 
 //--------------------------------------------------------------

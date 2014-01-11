@@ -42,5 +42,5 @@ class testApp : public ofBaseApp{
         int blk_nr; // Current Block Number
         int clp_nr; // Current Clip Number
 
-        Clip* clips[TOTAL_BANKS][TOTAL_BLCKS][TOTAL_CLIPS];
+        vector< vector< vector<Clip*> > > clips;
 };

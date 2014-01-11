@@ -10,12 +10,12 @@ class ClipManager
         ClipManager();
         virtual ~ClipManager();
 
-        void setup( Clip *clips, int *bnk_nr, int *blk_nr, int *clp_nr );
+        void setup( vector< vector< vector<Clip*> > > clips, int *bnk_nr, int *blk_nr, int *clp_nr );
 
     protected:
     private:
 
-        Clip *_clips;
+        vector< vector< vector<Clip*> > > _clips;
 
         int* _bnk_nr;
         int* _blk_nr;
