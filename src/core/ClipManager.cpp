@@ -14,11 +14,11 @@ void ClipManager::setup( vector< vector< vector<Clip*> > > clips, int *bnk_nr, i
 {
     _clips = clips;
 
-    _bnk_nr = *bnk_nr;
-    _blk_nr = *blk_nr;
-    _clp_nr = *clp_nr;
+    _bnk_nr = bnk_nr;
+    _blk_nr = blk_nr;
+    _clp_nr = clp_nr;
 
-    _clips[_bnk_nr][_blk_nr][_clp_nr]->setup();
+    _clips[*_bnk_nr][*_blk_nr][*_clp_nr]->setup();
 }
 
 void ClipManager::changeClip( const vector<int> *clipSelectionMap )
@@ -69,6 +69,46 @@ void ClipManager::prevBlock(){cout << "prev block" << endl;}
 void ClipManager::nextBlock(){cout << "next block" << endl;}
 void ClipManager::nthBlock( int index ){cout << "block: " << ofToString(index) << endl;}
 
-void ClipManager::prevClip(){cout << "prev clip" << endl;}
-void ClipManager::nextClip(){cout << "next clip" << endl;}
-void ClipManager::nthClip( int index ){cout << "clip: " << ofToString(index) << endl;}
+void ClipManager::prevClip(){
+    int destClip = *_clp_nr - 1;
+    if ( destClip == -1 )
+    {
+        destClip = _clips[*_bnk_nr][*_blk_nr].size() - 1;
+    }
+
+    activateClip( destClip );
+}
+
+void ClipManager::nextClip(){
+    int destClip = *_clp_nr + 1;
+    if ( destClip >= _clips[*_bnk_nr][*_blk_nr].size() )
+    {
+        destClip = 0;
+    }
+
+    activateClip( destClip );
+}
+
+void ClipManager::nthClip( int index ){
+    activateClip( index );
+}
+
+bool ClipManager::destClipAvail( int* bank, int* block, unsigned int index ){
+
+    if ( _clips[*bank][*block].size() > index )
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+}
+
+void ClipManager::activateClip( int index ){
+
+    if ( destClipAvail(_bnk_nr, _blk_nr, index ) )
+    {
+        *_clp_nr = index;
+        _clips[*_bnk_nr][*_blk_nr][*_clp_nr]->setup();
+    }
+}

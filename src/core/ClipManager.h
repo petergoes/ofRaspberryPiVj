@@ -38,9 +38,9 @@ class ClipManager
 
         vector< vector< vector<Clip*> > > _clips;
 
-        int _bnk_nr;
-        int _blk_nr;
-        int _clp_nr;
+        int *_bnk_nr;
+        int *_blk_nr;
+        int *_clp_nr;
 
         void prevBank();
         void nextBank();
@@ -52,6 +52,8 @@ class ClipManager
         void prevClip();
         void nextClip();
         void  nthClip( int index );
+        bool destClipAvail( int* bank, int* block, unsigned int index );
+        void activateClip( int index );
 };
 
 #endif // CLIPMANAGER_H
