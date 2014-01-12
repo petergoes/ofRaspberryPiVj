@@ -21,8 +21,7 @@ void ClipManager::setup( vector< vector< vector<Clip*> > > clips, int *bnk_nr, i
     _clips[*_bnk_nr][*_blk_nr][*_clp_nr]->setup();
 }
 
-void ClipManager::changeClip( const vector<int> *clipSelectionMap )
-{
+void ClipManager::changeClip( const vector<int> *clipSelectionMap ){
 
     if ( clipSelectionMap->size() <= 1 ) { return; }
 
@@ -62,12 +61,104 @@ void ClipManager::changeClip( const vector<int> *clipSelectionMap )
     return;
 }
 
-void ClipManager::prevBank(){cout << "prev bank" << endl; }
-void ClipManager::nextBank(){cout << "next bank" << endl;}
+void ClipManager::prevBank(){
+    int destBank = *_bnk_nr - 1;
+    if ( destBank == -1 )
+    {
+        destBank = _clips.size() - 1;
+    }
 
-void ClipManager::prevBlock(){cout << "prev block" << endl;}
-void ClipManager::nextBlock(){cout << "next block" << endl;}
-void ClipManager::nthBlock( int index ){cout << "block: " << ofToString(index) << endl;}
+    activateBank( destBank );
+}
+void ClipManager::nextBank(){
+    int destBank = *_bnk_nr + 1;
+    if ( destBank >= _clips.size() )
+    {
+        destBank = 0;
+    }
+
+    activateBank( destBank );
+}
+bool ClipManager::destBankAvail( int* index ){
+
+    if ( _clips.size() > *index )
+    {
+        if ( destBlockAvail( index, 0) )
+        {
+            return true;
+        } else
+        {
+            cout << "ClipManager::destBankAvail - Could not activate clips[" << ofToString(index) << "][0][0] because of bank index" << endl;
+            return false;
+        }
+    } else
+    {
+        cout << "ClipManager::destBlockAvail - Could not activate clips[" << ofToString(index) << "][0][0] because of block index" << endl;
+        return false;
+    }
+}
+void ClipManager::activateBank( int index ){
+
+    if ( destBankAvail(&index ) )
+    {
+        *_bnk_nr = index;
+        *_blk_nr = 0;
+        *_clp_nr = 0;
+        _clips[*_bnk_nr][*_blk_nr][*_clp_nr]->setup();
+        cout << "ClipManager::activateBank --- Activate Bank: clips[" << ofToString(*_bnk_nr) << "]" << endl;
+    }
+}
+
+void ClipManager::prevBlock(){
+    int destBlock = *_blk_nr - 1;
+    if ( destBlock == -1 )
+    {
+        destBlock = _clips[*_bnk_nr].size() - 1;
+    }
+
+    activateBlock( destBlock );
+}
+void ClipManager::nextBlock(){
+    int destBlock = *_blk_nr + 1;
+    if ( destBlock >= _clips[*_bnk_nr].size() )
+    {
+        destBlock = 0;
+    }
+
+    activateBlock( destBlock );
+}
+void ClipManager::nthBlock( int index ){
+    activateBlock( index );
+}
+bool ClipManager::destBlockAvail( int* bank, int index ){
+
+    if ( _clips[*bank].size() > index )
+    {
+        if ( destClipAvail(bank, &index, 0) )
+        {
+            return true;
+        } else
+        {
+            cout << "ClipManager::destBlockAvail - Could not activate clips[" << ofToString(*bank) << "][" << ofToString(index) << "][0] because of clip index" << endl;
+            return false;
+        }
+    } else
+    {
+        cout << "ClipManager::destBlockAvail - Could not activate clips[" << ofToString(*bank) << "][" << ofToString(index) << "][0] because of block index" << endl;
+        return false;
+    }
+}
+void ClipManager::activateBlock( int index ){
+
+    if ( destBlockAvail(_bnk_nr, index ) )
+    {
+        cout << "ClipManager::activateBlock --- Activate block: clips[" << ofToString(*_bnk_nr) << "][" << ofToString(index) << "]" << endl;
+        *_blk_nr = index;
+        *_clp_nr = 0;
+        _clips[*_bnk_nr][*_blk_nr][0]->setup();
+    }
+}
+
 
 void ClipManager::prevClip(){
     int destClip = *_clp_nr - 1;
@@ -78,7 +169,6 @@ void ClipManager::prevClip(){
 
     activateClip( destClip );
 }
-
 void ClipManager::nextClip(){
     int destClip = *_clp_nr + 1;
     if ( destClip >= _clips[*_bnk_nr][*_blk_nr].size() )
@@ -88,11 +178,9 @@ void ClipManager::nextClip(){
 
     activateClip( destClip );
 }
-
 void ClipManager::nthClip( int index ){
     activateClip( index );
 }
-
 bool ClipManager::destClipAvail( int* bank, int* block, unsigned int index ){
 
     if ( _clips[*bank][*block].size() > index )
@@ -100,10 +188,10 @@ bool ClipManager::destClipAvail( int* bank, int* block, unsigned int index ){
         return true;
     } else
     {
+        cout << "ClipManager::destClipAvail - Could not activate clips[" << ofToString(*bank) << "][" << ofToString(*block) << "][" << ofToString(index) << "] because of clip index" << endl;
         return false;
     }
 }
-
 void ClipManager::activateClip( int index ){
 
     if ( destClipAvail(_bnk_nr, _blk_nr, index ) )

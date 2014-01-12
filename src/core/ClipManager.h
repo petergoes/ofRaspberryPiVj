@@ -44,10 +44,14 @@ class ClipManager
 
         void prevBank();
         void nextBank();
+        bool destBankAvail( int* index );
+        void activateBank( int index );
 
         void prevBlock();
         void nextBlock();
         void  nthBlock( int index );
+        bool destBlockAvail( int* bank, int index );
+        void activateBlock( int index );
 
         void prevClip();
         void nextClip();

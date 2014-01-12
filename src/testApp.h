@@ -14,6 +14,9 @@
 #include "clips/Squares.h"
 #include "clips/Triangle.h"
 
+#include "clips/RedCircles.h"
+#include "clips/GreenSquares.h"
+
 class testApp : public ofBaseApp{
 
 	public:
