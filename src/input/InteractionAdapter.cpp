@@ -21,6 +21,7 @@ InteractionAdapter::InteractionAdapter(): clipSelectionMap(_clipSelectionMap)
     _keymap["DL"]  = 97;   // A
 
     _pressedButtons.assign(16, false);
+
 }
 
 InteractionAdapter::~InteractionAdapter()

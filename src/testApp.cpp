@@ -13,18 +13,15 @@ void testApp::setup(){
 
     clips.push_back( vector< vector<Clip*> >() );   // Bank  0
         clips[0].push_back( vector<Clip*>() );          // Block 0
-            clips[0][0].push_back( new DefaultClip() );     // Clip  0
-            clips[0][0].push_back( new YellowCircle() );    // Clip  1
+            clips[0][0].push_back( new DefaultClip() );    // Clip  0
+            clips[0][0].push_back( new YellowCircle() );   // Clip  1
+            clips[0][0].push_back( new Triangle() );       // Clip  2
+            clips[0][0].push_back( new Squares() );        // Clip  3
 
         clips[0].push_back( vector<Clip*>() );          // Block 1
             clips[0][1].push_back( new RedCircles() );     // Clip  0
             clips[0][1].push_back( new GreenSquares() );   // Clip  1
 
-
-    clips.push_back( vector< vector<Clip*> >() );   // Bank  1
-        clips[1].push_back( vector<Clip*>() );          // Block 0
-            clips[1][0].push_back( new Triangle() );       // Clip  0
-            clips[1][0].push_back( new Squares() );        // Clip  1
 
     clipManager.setup( clips, &bnk_nr, &blk_nr, &clp_nr );
 }

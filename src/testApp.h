@@ -7,6 +7,7 @@
 #include "core/ClipManager.h"
 
 #include "input/InteractionAdapter.h"
+#include "input/DualAnalog3Adapter.h"
 
 #include "clips/Clip.h"
 #include "clips/DefaultClip.h"
@@ -34,7 +35,7 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-        InteractionAdapter ia;
+        DualAnalogAdapter ia;
         ClipManager clipManager;
 
         int bnk_nr; // Current Bank Number

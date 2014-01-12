@@ -29,6 +29,8 @@ class InteractionAdapter
         InteractionAdapter();
         virtual ~InteractionAdapter();
 
+        virtual void setup(){};
+
         void keyPressed(int key);
         void keyReleased(int key);
         void cleanKeymap();
@@ -36,7 +38,7 @@ class InteractionAdapter
 
         const vector<int> &clipSelectionMap;
 
-    private:
+    protected:
         vector<int> _buttonMap;
         vector<int> _clipSelectionMap;
 
