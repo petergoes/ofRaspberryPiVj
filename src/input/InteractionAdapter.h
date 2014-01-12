@@ -23,7 +23,6 @@
 #define TL  402
 #define TR  403
 
-
 class InteractionAdapter
 {
     public:
@@ -33,15 +32,19 @@ class InteractionAdapter
         void keyPressed(int key);
         void keyReleased(int key);
         void cleanKeymap();
+        void cleanSelectionMap();
 
-        const vector<int> &buttonMap;
+        const vector<int> &clipSelectionMap;
 
     private:
         vector<int> _buttonMap;
-        int _keymap[403];
-        int _pressedButtons[16];
+        vector<int> _clipSelectionMap;
+
+        map <string, int> _keymap;
+        vector<bool> _pressedButtons;
 
         void buildPressedButtons(int key);
+        void buildClipSelection();
 };
 
 #endif // INTERACTIONADAPTER_H

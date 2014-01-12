@@ -9,6 +9,8 @@ void testApp::setup(){
     blk_nr = 0;
     clp_nr = 0;
 
+    clipSelectionButtonMap = &ia.clipSelectionMap;
+
     clips.push_back( vector< vector<Clip*> >() );   // Bank  0
 
         clips[0].push_back( vector<Clip*>() );          // Block 0
@@ -17,14 +19,16 @@ void testApp::setup(){
             clips[0][0].push_back( new Squares() );         // Clip  2
             clips[0][0].push_back( new Triangle() );        // Clip  3
 
-
-    clips[bnk_nr][blk_nr][clp_nr]->setup();
-
     clipManager.setup( clips, &bnk_nr, &blk_nr, &clp_nr );
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
+
+    clipManager.changeClip( clipSelectionButtonMap );
+    ia.cleanSelectionMap();
+    ia.cleanKeymap();
+
     clips[bnk_nr][blk_nr][clp_nr]->update();
 
 }
@@ -62,21 +66,6 @@ void testApp::keyPressed(int key){
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
     ia.keyReleased(key);
-    //cout << "key: " << key << endl;
-
-/*
-    if ( clp_nr < TOTAL_CLIPS - 1 )
-    {
-        clp_nr = clp_nr + 1;
-    }
-    else
-    {
-        clp_nr = 0;
-    }
-
-    clips[bnk_nr][bck_nr][clp_nr]->setup();
-    clips[bnk_nr][bck_nr][clp_nr]->keyReleased( key );
-    */
 }
 
 //--------------------------------------------------------------

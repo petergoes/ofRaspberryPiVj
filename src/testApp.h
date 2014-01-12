@@ -1,9 +1,5 @@
 #pragma once
 
-#define TOTAL_BANKS 1
-#define TOTAL_BLCKS 4
-#define TOTAL_CLIPS 4
-
 #define DEBUG false
 
 #include "ofMain.h"
@@ -43,4 +39,6 @@ class testApp : public ofBaseApp{
         int clp_nr; // Current Clip Number
 
         vector< vector< vector<Clip*> > > clips;
+
+        const vector<int> *clipSelectionButtonMap;
 };
