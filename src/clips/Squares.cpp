@@ -1,5 +1,11 @@
 #include "Squares.h"
 
+float size1;
+float size2;
+float size3;
+float size4;
+float offset;
+
 Squares::Squares()
 {
     //ctor
@@ -13,25 +19,43 @@ Squares::~Squares()
 //--------------------------------------------------------------
 void Squares::setup(){
     Clip::setup();
+
+    offset = halfScreenWidth * .25;
+
+    speed = 0.1;
+    angle = 0;
+    offset = 1.5;
 }
 
 //--------------------------------------------------------------
 void Squares::update(){
     Clip::update();
+
+    size1 = sin(angle + 11.25) + offset;
+    size2 = sin(angle + 22.50) + offset;
+    size3 = sin(angle + 33.75) + offset;
+    size4 = sin(angle + 45) + offset;
+
+    angle += speed;
 }
 
 //--------------------------------------------------------------
 void Squares::draw(){
     Clip::draw();
 
-    float rectSize = halfScreenWidth * .25;
+    ofSetColor(0, 0, 255, 127);
+    ofTranslate( (halfScreenWidth * .5) - (offset * .5), (halfScreenHeight * .5) - (offset * .5) );
+    ofRect(0 - (size1 * 100) * .5,               0 - (size1 * 100) * .5,                  size1 * 100, size1 * 100);
+    ofRect(halfScreenWidth - (size2 * 100) * .5, 0 - (size2 * 100) * .5,                  size2 * 100, size2 * 100);
+    ofRect(0 - (size4 * 100) * .5,               halfScreenHeight - (size4 * 100) * .5,   size4 * 100, size4 * 100);
+    ofRect(halfScreenWidth - (size3 * 100) * .5, halfScreenHeight - (size3 * 100) * .5,   size3 * 100, size3 * 100);
 
-    ofSetColor(0, 0, 255);
-    ofTranslate( (halfScreenWidth * .5) - (rectSize * .5), (halfScreenHeight * .5) - (rectSize * .5) );
-    ofRect(0,               0,                  rectSize, rectSize);
-    ofRect(halfScreenWidth, 0,                  rectSize, rectSize);
-    ofRect(0,               halfScreenHeight,   rectSize, rectSize);
-    ofRect(halfScreenWidth, halfScreenHeight,   rectSize, rectSize);
+    ofSetLineWidth(10);
+    ofNoFill();
+    ofRect(0 - (size1 * 100) * .5,               0 - (size1 * 100) * .5,                  size1 * 100, size1 * 100);
+    ofRect(halfScreenWidth - (size2 * 100) * .5, 0 - (size2 * 100) * .5,                  size2 * 100, size2 * 100);
+    ofRect(0 - (size4 * 100) * .5,               halfScreenHeight - (size4 * 100) * .5,   size4 * 100, size4 * 100);
+    ofRect(halfScreenWidth - (size3 * 100) * .5, halfScreenHeight - (size3 * 100) * .5,   size3 * 100, size3 * 100);
 }
 
 //--------------------------------------------------------------

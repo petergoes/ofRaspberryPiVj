@@ -22,6 +22,10 @@ class DefaultClip : public Clip
         void windowResized(int w, int h);
         void gotMessage(ofMessage msg);
         void dragEvent(ofDragInfo dragInfo);
+
+    private:
+        float angle;
+        float offset;
 };
 
 #endif // DEFAULTCLIP_H

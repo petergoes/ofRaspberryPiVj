@@ -22,6 +22,9 @@ class YellowCircle : public Clip
         void windowResized(int w, int h);
         void gotMessage(ofMessage msg);
         void dragEvent(ofDragInfo dragInfo);
+
+    private:
+        float angle;
 };
 
 #endif // YELLOWCIRCLE_H

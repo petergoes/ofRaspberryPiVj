@@ -13,19 +13,57 @@ YellowCircle::~YellowCircle()
 //--------------------------------------------------------------
 void YellowCircle::setup(){
     Clip::setup();
+
+    x = halfScreenWidth;
+    y = halfScreenHeight;
+
+    angle = 0;
+    speed = 0.05;
 }
 
 //--------------------------------------------------------------
 void YellowCircle::update(){
     Clip::update();
+
+    angle += speed;
 }
 
 //--------------------------------------------------------------
 void YellowCircle::draw(){
     Clip::draw();
 
-    ofSetColor(255, 255, 0);
-    ofCircle( halfScreenWidth, halfScreenHeight, 60 );
+    ofTranslate(x, y);
+
+    ofSetColor(255, 255, 0, 127);
+    ofCircle( (sin(angle) * (halfScreenHeight * .4)),
+              (cos(angle) * (halfScreenHeight * .4)),
+              size * 100 );
+    ofCircle( (sin(angle) * ((halfScreenHeight * .4) * 1.75)),
+              (cos(angle) * ((halfScreenHeight * .4) * 1.75)),
+              size * 100 );
+
+    ofCircle( (cos(angle) * (halfScreenHeight * .4)),
+              (sin(angle) * (halfScreenHeight * .4)),
+              size * 100 );
+    ofCircle( (cos(angle) * ((halfScreenHeight * .4) * 1.75)),
+              (sin(angle) * ((halfScreenHeight * .4) * 1.75)),
+              size * 100 );
+
+    ofSetLineWidth(10);
+    ofNoFill();
+    ofCircle( (sin(angle) * (halfScreenHeight * .4)),
+              (cos(angle) * (halfScreenHeight * .4)),
+              size * 100 );
+    ofCircle( (sin(angle) * ((halfScreenHeight * .4) * 1.75)),
+              (cos(angle) * ((halfScreenHeight * .4) * 1.75)),
+              size * 100 );
+
+    ofCircle( (cos(angle) * (halfScreenHeight * .4)),
+              (sin(angle) * (halfScreenHeight * .4)),
+              size * 100 );
+    ofCircle( (cos(angle) * ((halfScreenHeight * .4) * 1.75)),
+              (sin(angle) * ((halfScreenHeight * .4) * 1.75)),
+              size * 100 );
 }
 
 //--------------------------------------------------------------

@@ -36,6 +36,7 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
         DualAnalogAdapter ia;
+        //InteractionAdapter ia;
         ClipManager clipManager;
 
         int bnk_nr; // Current Bank Number

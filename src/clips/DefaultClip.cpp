@@ -13,18 +13,34 @@ DefaultClip::~DefaultClip()
 //--------------------------------------------------------------
 void DefaultClip::setup(){
     Clip::setup();
+
+    x = halfScreenWidth;
+    y = halfScreenHeight;
+
+    speed = 0.1;
+    angle = 0;
+    offset = 1.5;
 }
 
 //--------------------------------------------------------------
 void DefaultClip::update(){
     Clip::update();
+
+    size = sin(angle) + offset;
+    angle += speed;
 }
 
 //--------------------------------------------------------------
 void DefaultClip::draw(){
     Clip::draw();
 
-    ofCircle( halfScreenWidth, halfScreenHeight, 60 );
+    ofTranslate(x, y);
+    ofSetColor(255, 255, 255, 127);
+    ofCircle( 0, 0, size * 100 );
+
+    ofSetLineWidth(10);
+    ofNoFill();
+    ofCircle( 0, 0, size * 100 );
 }
 
 //--------------------------------------------------------------

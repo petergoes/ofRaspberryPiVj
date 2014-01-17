@@ -14,8 +14,19 @@ class Clip
         Clip() {};
         virtual ~Clip() {};
 
-        virtual void setup(){ screenWidth = ofGetWidth(); screenHeight = ofGetHeight(); halfScreenWidth = screenWidth * .5; halfScreenHeight = screenHeight *.5; };
-        virtual void update(){ };
+        virtual void setup(){
+            screenWidth = ofGetWidth();
+            screenHeight = ofGetHeight();
+            halfScreenWidth = screenWidth * .5;
+            halfScreenHeight = screenHeight *.5;
+
+            speed = 0.5f;
+            size = 0.5f;
+            x = 0;
+            y = 0;
+            step = 0;
+            };
+        virtual void update(){ step++; };
         virtual void draw(){ ofPopStyle(); ofPopMatrix(); ofClear(0, 0, 0); ofPushStyle(); ofPushMatrix(); };
         virtual void keyPressed(int key){};
         virtual void keyReleased(int key){};
@@ -26,6 +37,13 @@ class Clip
         virtual void windowResized(int w, int h){ screenWidth = w; screenHeight = h; halfScreenWidth = w * .5; halfScreenHeight = h *.5; };
         virtual void gotMessage(ofMessage msg){};
         virtual void dragEvent(ofDragInfo dragInfo){};
+
+    protected:
+        float speed;
+        float size;
+        float x;
+        float y;
+        unsigned int step;
 };
 
 #endif
